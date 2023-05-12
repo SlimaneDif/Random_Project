@@ -1,0 +1,221 @@
+body{
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header{
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    padding: 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+header .header-logo{
+    height: 50px;
+    width: 120px;
+}
+header .menu-bars{
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  top: 1.5vh;
+  right: 1.5vw;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.menu-bars .menu-bar{
+    width: 100%;
+    height: 3px;
+    background-color: white;
+}
+header .header-links .close-bars{
+    width: 50px;
+    height: 45px;
+    position: absolute;
+    right: 1.5vw;
+    top: 1.5vh;
+    display: none;
+}
+.close-bars .close-bar-1{
+    width: 62px;
+    height: 3px;
+    position: absolute;
+    background-color: white;
+    transform: rotate(45deg);
+    top: 3.3vh;
+    right: -0.6vw;
+}
+.close-bars .close-bar-2{
+    width: 62px;
+    height: 3px;
+    position: absolute;
+    background-color: white;
+    transform: rotate(-45deg);
+    top: 3.3vh;
+    right: -0.6vw;
+}
+.header-links{
+    width: 50%;
+    margin-right: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style-type: none;
+}
+.header-links .header-link{
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+.header-link::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 2.2px;
+    background-color: white;
+    opacity: 0;
+    transition: 0.2s;
+}
+.header-link:hover::after{
+  opacity: 1;
+  position: absolute;
+  top: 20px;
+  transition: 0.2s ;
+}
+main{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+main .select-inputs{
+    display: flex;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    gap: 25px;
+    max-width: 100%;
+}
+::placeholder{
+    color: black;
+    font-weight: 600;
+}
+.select-inputs #first-select{
+    width: 150px;
+    height: 35px;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background-color: rgba(236,236,236,255);
+}
+.search-box{
+    border-radius: 4px;
+    width: 500px;
+    height: 35px;
+}
+.search-box input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 15px;
+    padding-left: 10px;
+    background-color: rgba(236,236,236,255);
+}
+main .boxes{
+    background-color: white;
+    width: 100%;
+    height: max-content;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+.boxes .box{
+    width: 310px;
+    height: 220px;
+    max-height: 350px;
+    outline: none;
+    border: none;
+    border-radius: 3.33px;
+    background-color: rgba(217,217,217,255);
+    margin: 10px auto;
+    padding: 0 20px;
+    font-weight: 600;
+    transition: 366ms all ease-out;
+}
+.box .box-link{
+    color: #1572db;
+    text-decoration: none;
+}
+.box:hover{
+    transition: 388ms all ease-out;
+    scale: 1.01;
+    transform: translateY(-5px);
+}
+/*Responsiveness Media Queries*/
+@media screen and (max-width: 788px){
+    .header-links{
+        margin: 0 auto;
+        width: 70%;
+        padding: 0;
+    }
+}
+@media screen and (max-width: 588px){
+    header .menu-bars{
+        display: flex;
+        cursor: pointer;
+        right: 3.5vw;
+    }
+    .header-links{
+        position: absolute;
+        left: 150%;
+        transition: 0.4s all ease-out;
+        width: 100% !important;
+    }
+    main{
+        width: 100vw;
+    }
+    .header-links.active{
+        display: flex;
+        backdrop-filter: brightness(2.5%);
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        top: 0;
+        flex-direction: column;
+    }
+    header .header-links .close-bars{
+        cursor: pointer;
+        right: 100%;
+        display: block;
+        transition: 788ms;
+    }
+    header .header-links .close-bars.active-close{
+        right: 3.4vw;
+    }
+}
+@media screen and (max-width: 390px){
+    .boxes .box{
+        max-width: 100%;
+        margin: 6px auto;
+    }
+}
